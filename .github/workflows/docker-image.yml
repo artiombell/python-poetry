@@ -29,4 +29,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: artiombell/python-poetry:3.11.1-slim
+          tags: artiombell/python-poetry:3.11.4-slim
