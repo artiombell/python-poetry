@@ -107,3 +107,5 @@ RUN mv geckodriver /usr/local/bin/
 RUN pip3 install poetry
 
 RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+
+ENV TZ Etc/UTC
