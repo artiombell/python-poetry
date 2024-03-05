@@ -90,3 +90,20 @@ ENV MOZ_HEADLESS=1
 
 # set display port to avoid crash
 ENV DISPLAY=:99
+
+ENV PATH $PATH:/usr/local/bin
+
+ENV PYENV_ROOT /usr/local/bin/.pyenv
+ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
+
+RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
+RUN pyenv install 3.11.1 && pyenv global 3.11.1
+RUN echo "$(pyenv init -)" > ~/.bashrc
+
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v${geckodriver_ver}/geckodriver-v${geckodriver_ver}-linux64.tar.gz
+RUN tar -xvzf geckodriver-v${geckodriver_ver}-linux64.tar.gz
+RUN mv geckodriver /usr/local/bin/
+
+RUN pip3 install poetry
+
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
