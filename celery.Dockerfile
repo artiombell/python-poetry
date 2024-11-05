@@ -79,7 +79,7 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     python3-openssl \
     git \
-    python3.12-gdbm \
+    python3.11-gdbm \
     supervisor
 
 
