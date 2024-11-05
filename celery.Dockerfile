@@ -79,7 +79,7 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     python3-openssl \
     git \
-    python3.11-gdbm \
+    python3.12-gdbm \
     supervisor
 
 
@@ -97,7 +97,7 @@ ENV PYENV_ROOT /usr/local/bin/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
 RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
-RUN pyenv install 3.11.1 && pyenv global 3.11.1
+RUN pyenv install 3.12.7 && pyenv global 3.12.7
 RUN echo "$(pyenv init -)" > ~/.bashrc
 
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v${geckodriver_ver}/geckodriver-v${geckodriver_ver}-linux64.tar.gz
